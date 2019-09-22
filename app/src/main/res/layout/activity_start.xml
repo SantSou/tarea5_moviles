@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Prepárate los mejores platillos"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/activity_login_btn_login"
         app:layout_constraintEnd_toEndOf="@+id/activity_login_btn_register"
