@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import iteso.mx.tarea05.R
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class ActivityRegister : AppCompatActivity(), View.OnClickListener {
     private lateinit var mRegister: Button
@@ -45,7 +46,7 @@ class ActivityRegister : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0?.id) {
             R.id.activity_register_btn_register -> {
-                //requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                startActivity<ActivityTutorial>()
             }
         }
     }
