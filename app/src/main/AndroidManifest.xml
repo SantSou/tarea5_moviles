@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <!-- TODO Implement Parse in Application -->
-        <activity android:name=".activities.ActivityMain"></activity>
+        <activity android:name=".activities.ActivityMain"/>
         <activity android:name=".activities.ActivityTutorial" />
         <activity android:name=".activities.ActivityLogin" />
         <activity android:name=".activities.ActivityRegister" />
