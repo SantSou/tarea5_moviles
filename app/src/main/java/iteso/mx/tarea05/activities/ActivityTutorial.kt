@@ -35,11 +35,12 @@ class ActivityTutorial : AppCompatActivity(), View.OnClickListener{
         *   Second Fragment has a background image a next and previous button
         *   Third Fragment has a background image a finish and a previous button
         *  */
-        Log.d("tutorial_activity", "exited rendering first fragment")
     }
     override fun onClick(p0: View?) {
+        Log.d("tutorial_activity", "click register")
         when(p0?.id) {
             R.id.fragment_tutorial1_btn_next -> {
+                Log.d("tutorial_activity", "clicked btn1")
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.activity_tutorial_fl_main_content,
