@@ -46,21 +46,20 @@ class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
         mPresenter = HomePresenter(this)
         mPresenter.fetchRecipe("asdfoij234")
 
-        mSwitcher.displayedChild = SHOW_USER
+        mSwitcher.displayedChild = SHOW_NO_USER
 
         mButton = find(R.id.fragment_refresh_button)
 
         Log.d("fragment_home", "variables loaded")
 
-        /*mButton.setOnClickListener {
-            decideActionWithMenuItemClicked(0)
-        }*/
+        mButton.setOnClickListener {
+            mPresenter.fetchRecipe("hola")
+        }
 
     }
 
     override fun showProgress() {
         mSwitcher.displayedChild = SHOW_PROGRESS
-
     }
 
     override fun showRecipe(recipe: Recipe) {

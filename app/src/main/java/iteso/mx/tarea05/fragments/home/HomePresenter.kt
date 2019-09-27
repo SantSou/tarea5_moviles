@@ -8,9 +8,9 @@ import java.util.*
 
 class HomePresenter(private val view: HomeContract.View) : HomeContract.Presenter {
     override fun fetchRecipe(objectId: String) {
-        view.showNoRecipe()
+        view.showProgress()
         doAsync {
-            Thread.sleep(1000)
+            Thread.sleep(4000)
             val random = Random()
             val randomInt = random.nextInt(20)
             if (randomInt < 11) {
