@@ -12,7 +12,7 @@ import iteso.mx.tarea05.fragments.Fragment_tut3
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
-class ActivityTutorial : AppCompatActivity(), View.OnClickListener{
+class ActivityTutorial : AppCompatActivity(){
 
     private lateinit var mNext1 : Button
     private lateinit var mNext2 : Button
@@ -35,46 +35,5 @@ class ActivityTutorial : AppCompatActivity(), View.OnClickListener{
         *   Second Fragment has a background image a next and previous button
         *   Third Fragment has a background image a finish and a previous button
         *  */
-    }
-    override fun onClick(p0: View?) {
-        Log.d("tutorial_activity", "click register")
-        when(p0?.id) {
-            R.id.fragment_tutorial1_btn_next -> {
-                Log.d("tutorial_activity", "clicked btn1")
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_tutorial_fl_main_content,
-                        Fragment_tut2()
-                    )
-                    .commit()
-            }
-            R.id.fragment_tutorial2_btn_next -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_tutorial_fl_main_content,
-                        Fragment_tut3()
-                    )
-                    .commit()
-            }
-            R.id.fragment_tutorial2_btn_previous -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_tutorial_fl_main_content,
-                        Fragment_tut1()
-                    )
-                    .commit()
-            }
-            R.id.fragment_tutorial3_btn_previous -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_tutorial_fl_main_content,
-                        Fragment_tut2()
-                    )
-                    .commit()
-            }
-            R.id.fragment_tutorial3_btn_finish -> {
-                startActivity<ActivityMain>()
-            }
-        }
     }
 }
