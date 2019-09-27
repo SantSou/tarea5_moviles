@@ -13,7 +13,6 @@ import iteso.mx.mvp.activities.main.HomeContract
 import iteso.mx.tarea05.R
 import iteso.mx.tarea05.activities.HomePresenter
 import iteso.mx.tarea05.adapters.Recipe
-import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.find
 
 class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
@@ -24,8 +23,8 @@ class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
 
     companion object {
         const val SHOW_PROGRESS = 0
-        const val SHOW_NO_USER = 1
-        const val SHOW_USER = 2
+        const val SHOW_NO_RECIPE = 1
+        const val SHOW_RECIPE = 2
     }
 
     override fun onCreateView(
@@ -36,26 +35,22 @@ class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         Log.d("fragment_home", "view inflated")
-
         return view
     }
 
     override fun onClick(p0: View?) {
-        mSwitcher = find(R.id.fragment_home_switcher)
-
-        mPresenter = HomePresenter(this)
-        mPresenter.fetchRecipe("asdfoij234")
-
-        mSwitcher.displayedChild = SHOW_NO_USER
-
         mButton = find(R.id.fragment_refresh_button)
-
-        Log.d("fragment_home", "variables loaded")
-
+        mPresenter = HomePresenter(this)
         mButton.setOnClickListener {
-            mPresenter.fetchRecipe("hola")
+            //mPresenter.fetchRecipe("hola")
+            Log.d("fragment_home", "button clicked")
         }
+    }
 
+    override fun init_animator() {
+        mSwitcher = find(R.id.fragment_home_switcher)
+        mSwitcher.displayedChild = SHOW_NO_RECIPE
+        Log.d("fragment_home", "variables loaded")
     }
 
     override fun showProgress() {
@@ -63,11 +58,11 @@ class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
     }
 
     override fun showRecipe(recipe: Recipe) {
-        mSwitcher.displayedChild = SHOW_USER
+        mSwitcher.displayedChild = SHOW_RECIPE
     }
 
     override fun showNoRecipe() {
-        mSwitcher.displayedChild = SHOW_NO_USER
+        mSwitcher.displayedChild = SHOW_NO_RECIPE
     }
 
     private fun decideActionWithMenuItemClicked(itemId: Int) {

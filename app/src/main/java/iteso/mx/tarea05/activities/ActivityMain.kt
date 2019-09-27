@@ -8,6 +8,7 @@ import iteso.mx.fragments.fragments.FragmentProfile
 import iteso.mx.fragments.fragments.FragmentRecipes
 import iteso.mx.fragments.fragments.home.FragmentHome
 import iteso.mx.tarea05.R
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class ActivityMain : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener  {
 

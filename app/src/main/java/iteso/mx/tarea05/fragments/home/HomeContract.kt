@@ -4,6 +4,7 @@ import iteso.mx.tarea05.adapters.Recipe
 
 interface HomeContract {
     interface View {
+        fun init_animator()
         fun showProgress()
         fun showRecipe(recipe: Recipe)
         fun showNoRecipe()
