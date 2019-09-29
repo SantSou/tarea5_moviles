@@ -22,9 +22,10 @@ class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
     private lateinit var mButton: Button
 
     companion object {
-        const val SHOW_PROGRESS = 0
+        const val SHOW_PROGRESS = 2
         const val SHOW_NO_RECIPE = 1
-        const val SHOW_RECIPE = 2
+        const val SHOW_RECIPE = 3
+        const val REFRESH_BUTTON = 3
     }
 
     override fun onCreateView(
@@ -33,24 +34,17 @@ class FragmentHome : Fragment(), HomeContract.View, View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
+        mButton = view.findViewById(R.id.fragment_refresh_button)
+        mSwitcher = view.findViewById(R.id.fragment_home_switcher)
+        mPresenter = HomePresenter(this)
         Log.d("fragment_home", "view inflated")
+        mButton.setOnClickListener(this)
         return view
     }
 
     override fun onClick(p0: View?) {
-        mButton = find(R.id.fragment_refresh_button)
-        mPresenter = HomePresenter(this)
-        mButton.setOnClickListener {
-            //mPresenter.fetchRecipe("hola")
+            mPresenter.fetchRecipe("hola")
             Log.d("fragment_home", "button clicked")
-        }
-    }
-
-    override fun init_animator() {
-        mSwitcher = find(R.id.fragment_home_switcher)
-        mSwitcher.displayedChild = SHOW_NO_RECIPE
-        Log.d("fragment_home", "variables loaded")
     }
 
     override fun showProgress() {
